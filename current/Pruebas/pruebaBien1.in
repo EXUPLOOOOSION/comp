@@ -1,0 +1,21 @@
+program ijnadfsijnadfs
+int a;
+{
+	a = a+1;
+	do{
+		while forever {
+		a = a+12378-b*7;
+		exit;
+		if a<b {
+			skip if (a >= c);
+			exit;
+		};
+		};
+		exit
+	}
+	until a==0
+	else{
+		exit;
+	};
+	
+}

@@ -1,0 +1,107 @@
+State 4 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: S $end
+
+    1 S: RIF S RELSE S
+    2  | RIF S
+    3  | TIDENTIFIER
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    error (256)
+    TIDENTIFIER <str> (258) 3
+    RIF <str> (259) 1 2
+    RELSE <str> (260) 1
+
+
+Nonterminals, with rules where they appear
+
+    $accept (6)
+        on left: 0
+    S <str> (7)
+        on left: 1 2 3
+        on right: 0 1 2
+
+
+State 0
+
+    0 $accept: . S $end
+    1 S: . RIF S RELSE S
+    2  | . RIF S
+    3  | . TIDENTIFIER
+
+    TIDENTIFIER  shift, and go to state 1
+    RIF          shift, and go to state 2
+
+    S  go to state 3
+
+
+State 1
+
+    3 S: TIDENTIFIER .
+
+    $default  reduce using rule 3 (S)
+
+
+State 2
+
+    1 S: . RIF S RELSE S
+    1  | RIF . S RELSE S
+    2  | . RIF S
+    2  | RIF . S
+    3  | . TIDENTIFIER
+
+    TIDENTIFIER  shift, and go to state 1
+    RIF          shift, and go to state 2
+
+    S  go to state 4
+
+
+State 3
+
+    0 $accept: S . $end
+
+    $end  shift, and go to state 5
+
+
+State 4
+
+    1 S: RIF S . RELSE S
+    2  | RIF S .  [$end, RELSE]
+
+    RELSE  shift, and go to state 6
+
+    RELSE     [reduce using rule 2 (S)]
+    $default  reduce using rule 2 (S)
+
+
+State 5
+
+    0 $accept: S $end .
+
+    $default  accept
+
+
+State 6
+
+    1 S: . RIF S RELSE S
+    1  | RIF S RELSE . S
+    2  | . RIF S
+    3  | . TIDENTIFIER
+
+    TIDENTIFIER  shift, and go to state 1
+    RIF          shift, and go to state 2
+
+    S  go to state 7
+
+
+State 7
+
+    1 S: RIF S RELSE S .
+
+    $default  reduce using rule 1 (S)

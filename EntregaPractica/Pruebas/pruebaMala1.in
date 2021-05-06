@@ -1,0 +1,9 @@
+program adibidea
+{
+[* un comentario se escribe asi:
+ [*comentario multi
+ linea*]*]
+
+   a = a * 0.4756 ;
+}
+

@@ -1,0 +1,37 @@
+program ejemplo
+ int a,b,c ;
+ float d,e ; [* esto es un **
+comentario multilínea*]
+proc sumar ( int <= x; int <= y; int <=> resul)
+ int aux, iteraciones;
+ proc restar(int <= a,b; int=>resul)
+ int aux;
+ {
+	 resul = (x+y)*4.65e+10/4.65e+10;
+	 #python es mejor que ada pls quitad todo lo de ada
+ }
+{
+	aux = x;
+	resul = y;
+	if resul < 1000 {
+		iteraciones = 0;
+		do {
+		resul = resul + 1;
+		skip if resul > 1000000;
+		aux = aux - 1;
+		iteraciones = iteraciones + 1;
+		} until aux == 0
+		else {
+			if resul < 0 {exit;};
+			println(iteraciones);
+		}; # fin del do
+	}; # fin del if
+} # fin de proc
+{ read(a); read(b);
+d= 1/b;
+[* los que hagan llamadas a procedimientos *]
+c= c*(c*d)+e;
+println(c);
+[*]]]]]]]]]]]]]]]]]*]
+}
+

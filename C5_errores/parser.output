@@ -1,0 +1,241 @@
+Terminals unused in grammar
+
+    TMUL
+
+
+Grammar
+
+    0 $accept: programa $end
+
+    1 programa: RPROGRAM TIDENTIFIER RBEGIN listasentencias RENDPROGRAM TSEMIC
+
+    2 listasentencias: sentencia TSEMIC
+    3                | listasentencias sentencia TSEMIC
+    4                | error TSEMIC
+    5                | listasentencias error TSEMIC
+
+    6 sentencia: TIDENTIFIER TASSIG expr
+
+    7 expr: TIDENTIFIER
+    8     | TINTEGER
+    9     | TDOUBLE
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    error (256) 4 5
+    TIDENTIFIER <str> (258) 1 6 7
+    TINTEGER <str> (259) 8
+    TDOUBLE <str> (260) 9
+    TMUL <str> (261)
+    TSEMIC <str> (262) 1 2 3 4 5
+    TASSIG <str> (263) 6
+    RPROGRAM <str> (264) 1
+    RBEGIN <str> (265) 1
+    RENDPROGRAM <str> (266) 1
+
+
+Nonterminals, with rules where they appear
+
+    $accept (12)
+        on left: 0
+    programa <str> (13)
+        on left: 1
+        on right: 0
+    listasentencias <str> (14)
+        on left: 2 3 4 5
+        on right: 1 3 5
+    sentencia <str> (15)
+        on left: 6
+        on right: 2 3
+    expr <str> (16)
+        on left: 7 8 9
+        on right: 6
+
+
+State 0
+
+    0 $accept: . programa $end
+    1 programa: . RPROGRAM TIDENTIFIER RBEGIN listasentencias RENDPROGRAM TSEMIC
+
+    RPROGRAM  shift, and go to state 1
+
+    programa  go to state 2
+
+
+State 1
+
+    1 programa: RPROGRAM . TIDENTIFIER RBEGIN listasentencias RENDPROGRAM TSEMIC
+
+    TIDENTIFIER  shift, and go to state 3
+
+
+State 2
+
+    0 $accept: programa . $end
+
+    $end  shift, and go to state 4
+
+
+State 3
+
+    1 programa: RPROGRAM TIDENTIFIER . RBEGIN listasentencias RENDPROGRAM TSEMIC
+
+    RBEGIN  shift, and go to state 5
+
+
+State 4
+
+    0 $accept: programa $end .
+
+    $default  accept
+
+
+State 5
+
+    1 programa: RPROGRAM TIDENTIFIER RBEGIN . listasentencias RENDPROGRAM TSEMIC
+    2 listasentencias: . sentencia TSEMIC
+    3                | . listasentencias sentencia TSEMIC
+    4                | . error TSEMIC
+    5                | . listasentencias error TSEMIC
+    6 sentencia: . TIDENTIFIER TASSIG expr
+
+    error        shift, and go to state 6
+    TIDENTIFIER  shift, and go to state 7
+
+    listasentencias  go to state 8
+    sentencia        go to state 9
+
+
+State 6
+
+    4 listasentencias: error . TSEMIC
+
+    TSEMIC  shift, and go to state 10
+
+
+State 7
+
+    6 sentencia: TIDENTIFIER . TASSIG expr
+
+    TASSIG  shift, and go to state 11
+
+
+State 8
+
+    1 programa: RPROGRAM TIDENTIFIER RBEGIN listasentencias . RENDPROGRAM TSEMIC
+    3 listasentencias: listasentencias . sentencia TSEMIC
+    5                | listasentencias . error TSEMIC
+    6 sentencia: . TIDENTIFIER TASSIG expr
+
+    error        shift, and go to state 12
+    TIDENTIFIER  shift, and go to state 7
+    RENDPROGRAM  shift, and go to state 13
+
+    sentencia  go to state 14
+
+
+State 9
+
+    2 listasentencias: sentencia . TSEMIC
+
+    TSEMIC  shift, and go to state 15
+
+
+State 10
+
+    4 listasentencias: error TSEMIC .
+
+    $default  reduce using rule 4 (listasentencias)
+
+
+State 11
+
+    6 sentencia: TIDENTIFIER TASSIG . expr
+    7 expr: . TIDENTIFIER
+    8     | . TINTEGER
+    9     | . TDOUBLE
+
+    TIDENTIFIER  shift, and go to state 16
+    TINTEGER     shift, and go to state 17
+    TDOUBLE      shift, and go to state 18
+
+    expr  go to state 19
+
+
+State 12
+
+    5 listasentencias: listasentencias error . TSEMIC
+
+    TSEMIC  shift, and go to state 20
+
+
+State 13
+
+    1 programa: RPROGRAM TIDENTIFIER RBEGIN listasentencias RENDPROGRAM . TSEMIC
+
+    TSEMIC  shift, and go to state 21
+
+
+State 14
+
+    3 listasentencias: listasentencias sentencia . TSEMIC
+
+    TSEMIC  shift, and go to state 22
+
+
+State 15
+
+    2 listasentencias: sentencia TSEMIC .
+
+    $default  reduce using rule 2 (listasentencias)
+
+
+State 16
+
+    7 expr: TIDENTIFIER .
+
+    $default  reduce using rule 7 (expr)
+
+
+State 17
+
+    8 expr: TINTEGER .
+
+    $default  reduce using rule 8 (expr)
+
+
+State 18
+
+    9 expr: TDOUBLE .
+
+    $default  reduce using rule 9 (expr)
+
+
+State 19
+
+    6 sentencia: TIDENTIFIER TASSIG expr .
+
+    $default  reduce using rule 6 (sentencia)
+
+
+State 20
+
+    5 listasentencias: listasentencias error TSEMIC .
+
+    $default  reduce using rule 5 (listasentencias)
+
+
+State 21
+
+    1 programa: RPROGRAM TIDENTIFIER RBEGIN listasentencias RENDPROGRAM TSEMIC .
+
+    $default  reduce using rule 1 (programa)
+
+
+State 22
+
+    3 listasentencias: listasentencias sentencia TSEMIC .
+
+    $default  reduce using rule 3 (listasentencias)

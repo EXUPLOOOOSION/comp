@@ -1,0 +1,9 @@
+program prueba1 is
+
+
+begin
+
+  k := k + 6 * 7 / w -98 *3 + 1;
+  s2 := 0;
+ 
+endprogram ;

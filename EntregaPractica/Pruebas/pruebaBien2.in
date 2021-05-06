@@ -1,0 +1,28 @@
+program ejemplo
+ int a,b,c ;
+ float d,e ; [* esto es un **
+comentario multilínea*]
+{ read(a); read(b);
+[* los que hagan llamadas a procedimientos *]
+	c = 10.00e10;
+	while forever {
+		c = c*10.0e+30;
+		if (c >= 0.001e+10)
+		{
+			exit;
+		};#fin de if
+	};[*fin de while
+	
+	
+	forever
+	*]
+
+	d = a+b*c/0.10E-3;
+
+[*]]]]]]]]]]]]]]]]]*]
+ [*ak[]]]sr*]
+ [*AS*09dkf$ls*]
+ [*9aesk3 asdl****]
+ [******]
+}
+

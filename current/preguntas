@@ -1,0 +1,4 @@
+Como hacer que error no imprima una linea
+Como imprimir lo que se ha detectado como error (no imprimir ';' sino la sentencia mal escrita)
+error TSEMIC no traga, escupe
+errores al final de fichero?
